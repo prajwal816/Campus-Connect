@@ -1,13 +1,17 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
 import { Eye, Users } from "lucide-react";
+import { mockAuth } from "@/lib/auth";
+import { useToast } from "@/hooks/use-toast";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -19,8 +23,42 @@ const Register = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle registration logic here
-    console.log("Registration attempt:", formData);
+    
+    // Basic validation
+    if (formData.password !== formData.confirmPassword) {
+      toast({
+        title: "Error",
+        description: "Passwords do not match",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!formData.fullName || !formData.email || !formData.college || !formData.password) {
+      toast({
+        title: "Error", 
+        description: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Save user data to localStorage
+    mockAuth.signUp({
+      email: formData.email,
+      fullName: formData.fullName,
+      role: formData.role,
+      college: formData.college
+    });
+
+    toast({
+      title: "Success",
+      description: "Account created successfully!",
+    });
+
+    // Redirect to appropriate dashboard
+    const redirectPath = mockAuth.getRedirectPath(formData.role);
+    navigate(redirectPath);
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -95,6 +133,7 @@ const Register = () => {
                   <SelectContent>
                     <SelectItem value="student">Student</SelectItem>
                     <SelectItem value="college-admin">College Admin</SelectItem>
+                    <SelectItem value="super-admin">Super Admin</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

@@ -1,21 +1,47 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
-import { Eye, Users } from "lucide-react";
+import { Eye, Users, AlertCircle } from "lucide-react";
+import { mockAuth } from "@/lib/auth";
+import { useToast } from "@/hooks/use-toast";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginAs, setLoginAs] = useState("student");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log("Login attempt:", { email, password, loginAs });
+    setError("");
+
+    // Check if user exists in localStorage
+    const mockUser = mockAuth.getCurrentUser();
+    
+    if (!mockUser) {
+      setError("User not found. Please sign up to continue.");
+      return;
+    }
+
+    // Simple check - in real app you'd verify credentials
+    if (mockUser.email === email && mockUser.role === loginAs) {
+      toast({
+        title: "Success",
+        description: "Logged in successfully!",
+      });
+
+      // Redirect to appropriate dashboard
+      const redirectPath = mockAuth.getRedirectPath(loginAs);
+      navigate(redirectPath);
+    } else {
+      setError("Invalid credentials or role mismatch. Please check your email and selected role.");
+    }
   };
 
   return (
@@ -78,6 +104,13 @@ const Login = () => {
                   </SelectContent>
                 </Select>
               </div>
+
+              {error && (
+                <div className="flex items-center space-x-2 text-red-600 text-sm bg-red-50 p-3 rounded-lg">
+                  <AlertCircle className="w-4 h-4" />
+                  <span>{error}</span>
+                </div>
+              )}
 
               <Button 
                 type="submit" 

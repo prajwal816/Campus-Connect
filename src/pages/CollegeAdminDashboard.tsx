@@ -1,11 +1,12 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Plus, User, Calendar, Users, TrendingUp, CheckCircle, Eye, MoreHorizontal, Download, UserCheck } from "lucide-react";
+import { Plus, User, Calendar, Users, TrendingUp, CheckCircle, Eye, MoreHorizontal, Download, UserCheck, LogOut } from "lucide-react";
+import { mockAuth, MockUser } from "@/lib/auth";
 
 // Mock data
 const stats = [
@@ -61,6 +62,26 @@ const recentEvents = [
 
 const CollegeAdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
+  const [currentUser, setCurrentUser] = useState<MockUser | null>(null);
+  const [showLogoutMenu, setShowLogoutMenu] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if user is authenticated and has college-admin role
+    const user = mockAuth.getCurrentUser();
+    if (!user || user.role !== 'college-admin') {
+      navigate('/login');
+      return;
+    }
+    setCurrentUser(user);
+  }, [navigate]);
+
+  const handleLogout = () => {
+    mockAuth.logout();
+    navigate('/login');
+  };
+
+  if (!currentUser) return null;
 
   return (
     <div className="min-h-screen bg-background">
@@ -92,8 +113,27 @@ const CollegeAdminDashboard = () => {
               </nav>
             </div>
             <div className="flex items-center space-x-4">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                <User className="w-5 h-5 text-white" />
+              <span className="text-sm text-muted-foreground hidden sm:block">
+                {currentUser.fullName}
+              </span>
+              <div className="relative">
+                <button
+                  onClick={() => setShowLogoutMenu(!showLogoutMenu)}
+                  className="w-8 h-8 bg-primary rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors"
+                >
+                  <User className="w-5 h-5 text-white" />
+                </button>
+                {showLogoutMenu && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg border z-50">
+                    <button
+                      onClick={handleLogout}
+                      className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 flex items-center"
+                    >
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Logout
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>

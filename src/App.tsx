@@ -11,6 +11,7 @@ import CollegeAdminDashboard from "./pages/CollegeAdminDashboard";
 import EventListing from "./pages/EventListing";
 import OrganizerDashboard from "./pages/OrganizerDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import SuperAdminDashboard from "./pages/SuperAdminDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,8 +30,8 @@ const App = () => (
           <Route path="/college-admin-dashboard" element={<CollegeAdminDashboard />} />
           <Route path="/events" element={<EventListing />} />
           <Route path="/organizer-dashboard" element={<OrganizerDashboard />} />
-          <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          <Route path="/super-admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/admin-dashboard" element={<SuperAdminDashboard />} />
+          <Route path="/super-admin-dashboard" element={<SuperAdminDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
