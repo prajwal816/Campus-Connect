@@ -6,7 +6,6 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
 import { Eye, Users } from "lucide-react";
-import authBackgroundImage from "@/assets/auth-background.jpg";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -29,14 +28,7 @@ const Register = () => {
   };
 
   return (
-    <div 
-      className="min-h-screen flex items-center justify-center px-4 py-8"
-      style={{
-        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url(${authBackgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}
-    >
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 py-8">
       <div className="w-full max-w-md">
         {/* Registration Card */}
         <Card className="bg-white shadow-2xl rounded-2xl border-0 overflow-hidden">

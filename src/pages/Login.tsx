@@ -6,7 +6,6 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
 import { Eye, Users } from "lucide-react";
-import authBackgroundImage from "@/assets/auth-background.jpg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -20,14 +19,7 @@ const Login = () => {
   };
 
   return (
-    <div 
-      className="min-h-screen flex items-center justify-center px-4"
-      style={{
-        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url(${authBackgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}
-    >
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         {/* Login Card */}
         <Card className="bg-white shadow-2xl rounded-2xl border-0 overflow-hidden">
@@ -82,6 +74,7 @@ const Login = () => {
                   <SelectContent>
                     <SelectItem value="student">Student</SelectItem>
                     <SelectItem value="college-admin">College Admin</SelectItem>
+                    <SelectItem value="super-admin">Super Admin</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { User } from "lucide-react";
 
@@ -28,10 +29,10 @@ const StudentDashboard = () => {
           <p className="text-muted-foreground">Discover and register for exciting campus events</p>
         </div>
 
-        {/* My Upcoming Events Section */}
+        {/* My Registered Events Section */}
         <Card>
           <CardHeader>
-            <CardTitle>My Upcoming Events</CardTitle>
+            <CardTitle>My Registered Events</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-center py-12">
@@ -41,7 +42,10 @@ const StudentDashboard = () => {
                 </svg>
               </div>
               <h3 className="text-lg font-medium text-foreground mb-2">You haven't registered for any events yet</h3>
-              <p className="text-muted-foreground">Start exploring!</p>
+              <p className="text-muted-foreground mb-4">Start exploring!</p>
+              <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white">
+                Explore Events
+              </Button>
             </div>
           </CardContent>
         </Card>
