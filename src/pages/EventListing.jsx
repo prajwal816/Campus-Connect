@@ -64,8 +64,8 @@ const EventListing = () => {
   const [eventType, setEventType] = useState("all");
   const [status, setStatus] = useState("all");
   const [dateRange, setDateRange] = useState("all");
-  const [viewMode, setViewMode] = useState<"card" | "calendar">("card");
-  const [selectedEvent, setSelectedEvent] = useState<typeof mockEvents[0] | null>(null);
+  const [viewMode, setViewMode] = useState("card");
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   const filteredEvents = mockEvents.filter(event => {
     const matchesSearch = event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||

@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Plus, User, Calendar, Users, TrendingUp, CheckCircle, Eye, MoreHorizontal, Download, UserCheck, LogOut } from "lucide-react";
-import { mockAuth, MockUser } from "@/lib/auth";
+import { mockAuth } from "@/lib/auth";
 
 // Mock data
 const stats = [
@@ -62,7 +62,7 @@ const recentEvents = [
 
 const CollegeAdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
-  const [currentUser, setCurrentUser] = useState<MockUser | null>(null);
+  const [currentUser, setCurrentUser] = useState(null);
   const [showLogoutMenu, setShowLogoutMenu] = useState(false);
   const navigate = useNavigate();
 

@@ -17,7 +17,7 @@ const Login = () => {
   const [loginAs, setLoginAs] = useState("student");
   const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
 
