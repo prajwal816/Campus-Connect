@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
-import { Eye, Users, AlertCircle } from "lucide-react";
+import { Eye, User, AlertCircle } from "lucide-react";
 import { mockAuth } from "@/lib/auth";
 import { useToast } from "@/hooks/use-toast";
 
@@ -45,17 +45,17 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         {/* Login Card */}
-        <Card className="bg-white shadow-2xl rounded-2xl border-0 overflow-hidden">
+        <Card className="bg-white shadow-lg rounded-2xl border-0">
           <CardContent className="p-8">
             {/* App Icon */}
             <div className="text-center mb-8">
               <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
-                <Users className="w-8 h-8 text-white" />
+                <User className="w-8 h-8 text-white" />
               </div>
-              <h1 className="text-2xl font-bold text-gray-800 mb-2">Welcome Back</h1>
+              <h1 className="text-2xl font-bold text-gray-900 mb-2">Welcome Back</h1>
               <p className="text-gray-600">Sign in to your CampusEventHub account</p>
             </div>
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -91,9 +91,9 @@ const Login = () => {
               <div className="space-y-2">
                 <Label htmlFor="loginAs" className="text-sm font-medium text-gray-700">Login as</Label>
                 <Select value={loginAs} onValueChange={setLoginAs}>
-                  <SelectTrigger className="h-12 bg-gray-50 border-gray-200 rounded-lg">
+                  <SelectTrigger className="h-12 bg-gray-50 border-blue-200 rounded-lg border-2">
                     <div className="flex items-center">
-                      <Users className="w-4 h-4 mr-2 text-gray-500" />
+                      <User className="w-4 h-4 mr-2 text-gray-500" />
                       <SelectValue />
                     </div>
                   </SelectTrigger>
@@ -123,7 +123,7 @@ const Login = () => {
             <div className="mt-6 text-center">
               <p className="text-gray-600">
                 Don't have an account?{" "}
-                <Link to="/register" className="text-purple-600 hover:text-purple-700 font-medium">
+                <Link to="/register" className="text-blue-600 hover:text-blue-700 font-medium">
                   Sign up
                 </Link>
               </p>

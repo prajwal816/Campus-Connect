@@ -1,40 +1,31 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import campusBackgroundImage from "@/assets/campus-background.jpg";
 
 const Index = () => {
   return (
-    <div 
-      className="min-h-screen bg-background text-foreground relative"
-      style={{
-        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url(${campusBackgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
-      }}
-    >
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-border">
+      <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold bg-gradient-hero bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold text-blue-600">
                 CampusEventHub
               </h1>
             </div>
             
             {/* Center Navigation */}
             <nav className="hidden lg:flex space-x-8">
-              <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">
                 Features
               </a>
-              <a href="#students" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="#students" className="text-gray-600 hover:text-gray-900 transition-colors">
                 For Students
               </a>
-              <a href="#organizers" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="#organizers" className="text-gray-600 hover:text-gray-900 transition-colors">
                 For Organizers
               </a>
-              <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="#contact" className="text-gray-600 hover:text-gray-900 transition-colors">
                 Contact
               </a>
             </nav>
@@ -42,12 +33,12 @@ const Index = () => {
             {/* Right Actions */}
             <div className="flex items-center space-x-4">
               <Link to="/login">
-                <Button variant="ghost" className="text-muted-foreground hover:text-foreground">
+                <Button variant="ghost" className="text-gray-600 hover:text-gray-900">
                   Sign In
                 </Button>
               </Link>
               <Link to="/register">
-                <Button variant="gradient" size="sm">
+                <Button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white">
                   Get Started
                 </Button>
               </Link>
@@ -56,37 +47,33 @@ const Index = () => {
         </div>
       </header>
 
-      {/* Hero Section - Single Column Layout */}
-      <section className="pt-12 pb-20 px-4 sm:px-6 lg:px-8">
+      {/* Hero Section */}
+      <section className="pt-20 pb-32 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="min-h-[80vh] flex items-center">
-            
-            {/* Text Content - Left Aligned */}
-            <div className="space-y-8 max-w-2xl">
-              <div className="space-y-6">
-                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-                  <span className="text-foreground">Extraordinary</span>
-                  <br />
-                  <span className="bg-gradient-hero bg-clip-text text-transparent">
-                    Campus Events,
-                  </span>
-                  <br />
-                  <span className="text-foreground">Every Day.</span>
-                </h1>
-                
-                <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
-                  Plan, manage, and discover unforgettable events. Connect students and colleges seamlessly on one centralized platform.
-                </p>
-              </div>
+          <div className="max-w-4xl">
+            <div className="space-y-8">
+              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+                <span className="text-gray-900">Extraordinary</span>
+                <br />
+                <span className="text-blue-600">
+                  Campus Events,
+                </span>
+                <br />
+                <span className="text-gray-900">Every Day.</span>
+              </h1>
+              
+              <p className="text-xl text-gray-600 leading-relaxed max-w-2xl">
+                Plan, manage, and discover unforgettable events. Connect students and colleges seamlessly on one centralized platform.
+              </p>
 
               {/* Call-to-Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Link to="/events">
-                  <Button size="lg" variant="gradient" className="text-lg px-8 py-4 w-full sm:w-auto">
+                  <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 text-lg w-full sm:w-auto">
                     Explore Events
                   </Button>
                 </Link>
-                <Button size="lg" variant="outline" className="text-lg px-8 py-4 w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="px-8 py-4 text-lg w-full sm:w-auto border-gray-300 text-gray-700 hover:bg-gray-50">
                   Request a Demo
                 </Button>
               </div>
