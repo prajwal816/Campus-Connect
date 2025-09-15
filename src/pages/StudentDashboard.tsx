@@ -3,10 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { User, LogOut } from "lucide-react";
-import { mockAuth } from "@/lib/auth";
+import { mockAuth, MockUser } from "@/lib/auth";
 
 const StudentDashboard = () => {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState<MockUser | null>(null);
   const [showLogoutMenu, setShowLogoutMenu] = useState(false);
   const navigate = useNavigate();
 

@@ -126,7 +126,7 @@ const events = [
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("overview");
 
-  const handleStatClick = (tab) => {
+  const handleStatClick = (tab: string) => {
     setActiveTab(tab);
   };
 

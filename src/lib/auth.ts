@@ -1,29 +1,36 @@
 // Mock authentication utility using localStorage
 
+export interface MockUser {
+  email: string;
+  fullName: string;
+  role: string;
+  college: string;
+}
+
 export const mockAuth = {
   // Save user to localStorage
-  signUp: (userData) => {
+  signUp: (userData: MockUser): void => {
     localStorage.setItem('mockUser', JSON.stringify(userData));
   },
 
   // Check if user exists in localStorage
-  getCurrentUser: () => {
+  getCurrentUser: (): MockUser | null => {
     const userData = localStorage.getItem('mockUser');
     return userData ? JSON.parse(userData) : null;
   },
 
   // Remove user from localStorage
-  logout: () => {
+  logout: (): void => {
     localStorage.removeItem('mockUser');
   },
 
   // Check if user is authenticated
-  isAuthenticated: () => {
+  isAuthenticated: (): boolean => {
     return localStorage.getItem('mockUser') !== null;
   },
 
   // Get redirect path based on role
-  getRedirectPath: (role) => {
+  getRedirectPath: (role: string): string => {
     switch (role) {
       case 'student':
         return '/student-dashboard';

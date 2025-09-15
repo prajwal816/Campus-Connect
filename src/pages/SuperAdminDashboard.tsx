@@ -9,7 +9,7 @@ import {
   User, Calendar, Users, TrendingUp, CheckCircle, Eye, MoreHorizontal, 
   UserCheck, Activity, Shield, AlertTriangle, LogOut, Settings
 } from "lucide-react";
-import { mockAuth } from "@/lib/auth";
+import { mockAuth, MockUser } from "@/lib/auth";
 
 // Mock data
 const stats = [
@@ -57,7 +57,7 @@ const userActivity = [
 
 const SuperAdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("overview");
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState<MockUser | null>(null);
   const [showLogoutMenu, setShowLogoutMenu] = useState(false);
   const navigate = useNavigate();
 
