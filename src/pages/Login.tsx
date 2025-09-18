@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
-import { Eye, Users, AlertCircle } from "lucide-react";
+import { Eye, Users, AlertCircle, Home } from "lucide-react";
 import { mockAuth } from "@/lib/auth";
 import { useToast } from "@/hooks/use-toast";
 
@@ -46,6 +46,15 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
+      {/* Back to Home Navigation */}
+      <Link 
+        to="/" 
+        className="absolute top-6 left-6 flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors"
+      >
+        <Home className="w-5 h-5" />
+        <span className="text-sm font-medium">Back to Home</span>
+      </Link>
+      
       <div className="w-full max-w-md">
         {/* Login Card */}
         <Card className="bg-white shadow-2xl rounded-2xl border-0 overflow-hidden">
