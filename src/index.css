@@ -11,17 +11,17 @@ All colors MUST be HSL.
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     
-    /* Bright Blue Theme */
-    --primary: 214 92% 55%;
+    /* Darker Blue Theme */
+    --primary: 214 92% 45%;
     --primary-foreground: 0 0% 98%;
-    --primary-light: 214 92% 65%;
-    --primary-dark: 214 92% 45%;
+    --primary-light: 214 92% 55%;
+    --primary-dark: 214 92% 35%;
     
-    /* Secondary Blue */
-    --secondary: 214 82% 65%;
+    /* Secondary Darker Blue */
+    --secondary: 214 82% 55%;
     --secondary-foreground: 0 0% 98%;
-    --secondary-light: 214 82% 75%;
-    --secondary-dark: 214 82% 55%;
+    --secondary-light: 214 82% 65%;
+    --secondary-dark: 214 82% 45%;
     
     /* Neutral Colors */
     --card: 0 0% 100%;
@@ -44,7 +44,7 @@ All colors MUST be HSL.
     /* UI Elements */
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 214 92% 55%;
+    --ring: 214 92% 45%;
     --radius: 0.5rem;
     
     /* Gradients */
@@ -57,7 +57,7 @@ All colors MUST be HSL.
     --dark-surface: 222 22% 12%;
     --dark-text: 210 40% 95%;
     --dark-text-secondary: 215 15% 70%;
-    --hero-accent: 214 92% 60%;
+    --hero-accent: 214 92% 50%;
     
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(var(--primary) / 0.05);
@@ -69,7 +69,7 @@ All colors MUST be HSL.
     /* Sidebar */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 214 92% 55%;
+    --sidebar-primary: 214 92% 45%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
@@ -84,9 +84,9 @@ All colors MUST be HSL.
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 214 92% 65%;
+    --primary: 214 92% 55%;
     --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 214 82% 75%;
+    --secondary: 214 82% 65%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
@@ -96,10 +96,10 @@ All colors MUST be HSL.
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 214 92% 65%;
+    --ring: 214 92% 55%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 214 92% 65%;
+    --sidebar-primary: 214 92% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
