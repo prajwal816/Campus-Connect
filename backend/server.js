@@ -23,7 +23,7 @@ const corsOptions = {
     
     const allowedOrigins = [
       "http://localhost:5173",  // Development frontend
-      "https://your-vercel-app-name.vercel.app"  // Replace with your actual Vercel URL
+      "https://campus-connect-swart.vercel.app"  // Replace with your actual Vercel URL
     ];
     
     if (allowedOrigins.indexOf(origin) !== -1) {
