@@ -2,7 +2,7 @@
 
 Welcome to CampusEventHub, your one-stop portal for discovering, connecting with, and experiencing every event happening on campus. From tech fests and cultural nights to workshops and competitions, never miss out on what's happening around you.
 
-![CampusEventHub Screenshot](https://i.imgur.com/vHqC6h2.png)
+![CampusEventHub Screenshot](./frontend/src/assets/campusconnect-Homepage.png)
 
 ---
 
