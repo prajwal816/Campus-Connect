@@ -122,6 +122,38 @@ You'll need to run both the backend and frontend servers in separate terminals.
 
 ---
 
+## 🌐 Deployment & Live Demo
+
+This application is fully deployed and accessible online. The backend and frontend are hosted separately.
+
+* **Frontend (Vercel):** [**https://campus-connect-swart.vercel.app**](https://campus-connect-swart.vercel.app)
+* **Backend (Render):** [**https://campuseventhub-api.onrender.com**](https://campuseventhub-api.onrender.com)
+
+### Deployment Strategy
+
+This project uses a split-hosting model for optimal performance:
+
+#### 1. Backend on Render
+
+The Node.js/Express backend is deployed on Render as a Docker container.
+* **Service Type:** Web Service
+* **Environment:** `Docker`
+* **Root Directory:** `backend`
+* **Dockerfile Path:** `Dockerfile`
+* **Environment Variables:**
+    * `MONGO_URI`: (Your MongoDB connection string)
+    * `JWT_SECRET`: (Your secret key for tokens)
+
+#### 2. Frontend on Vercel
+
+The React/Vite frontend is deployed on Vercel.
+* **Framework Preset:** `Vite`
+* **Root Directory:** `frontend`
+* **Environment Variable:**
+    * `VITE_API_BASE_URL`: `https://campuseventhub-api.onrender.com` (pointing to the live backend)
+
+---
+
 ## 🤝 Contributing
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
