@@ -15,11 +15,30 @@ const authRoutes = require("./routes/auth");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// CORS Configuration
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    const allowedOrigins = [
+      "http://localhost:5173",  // Development frontend
+      "https://your-vercel-app-name.vercel.app"  // Replace with your actual Vercel URL
+    ];
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,  // Allow cookies/headers
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+};
+
 // Middleware
-app.use(cors({
-  origin: "http://localhost:5173",  // explicitly allow frontend
-  credentials: true                 // allow cookies/headers
-}));
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // MongoDB Connection Function
