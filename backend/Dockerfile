@@ -5,10 +5,12 @@ FROM node:18-alpine AS builder
 WORKDIR /app
 
 # Copy package files first for better caching
-COPY package*.json ./
+# CORRECTED LINE:
+COPY package.json package-lock.json ./
 
-# Install dependencies with clean install
-RUN npm ci --only=production && npm cache clean --force
+# Install dependencies with clean install (and modern --omit=dev flag)
+# CORRECTED LINE:
+RUN npm ci --omit=dev
 
 # Production stage
 FROM node:18-alpine AS production
@@ -21,7 +23,8 @@ RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nodejs -u 1001
 
 # Copy package files
-COPY package*.json ./
+# CORRECTED LINE:
+COPY package.json package-lock.json ./
 
 # Copy node_modules from builder stage
 COPY --from=builder /app/node_modules ./node_modules
@@ -33,7 +36,7 @@ COPY . .
 RUN chown -R nodejs:nodejs /app
 USER nodejs
 
-# Expose port
+# Expose port (Render will use this, but also sets its own)
 EXPOSE 5000
 
 # Health check
