@@ -1,73 +1,139 @@
-# Welcome to your Lovable project
+# CampusEventHub
 
-## Project info
+Welcome to CampusEventHub, your one-stop portal for discovering, connecting with, and experiencing every event happening on campus. From tech fests and cultural nights to workshops and competitions, never miss out on what's happening around you.
 
-**URL**: https://lovable.dev/projects/9fee407c-f26d-4838-9fc7-17fe0ea592eb
+![CampusEventHub Screenshot](https://i.imgur.com/vHqC6h2.png)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## ✨ Features
 
-**Use Lovable**
+- **Event Discovery:** Browse a comprehensive list of all upcoming campus events.
+- **Detailed Event Information:** Get all the details you need, including date, time, venue, and description.
+- **User Authentication:** Secure registration and login for students and organizers.
+- **Event Management:** A dedicated dashboard for organizers to create, update, and manage their events.
+- **Responsive Design:** A seamless experience whether you're on your desktop or mobile device.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9fee407c-f26d-4838-9fc7-17fe0ea592eb) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Tech Stack
 
-**Use your preferred IDE**
+This project is a full-stack application built with the MERN stack and Vite for a fast development experience.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Frontend:**
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+  - **React:** A JavaScript library for building user interfaces.
+  - **Vite:** A next-generation frontend tooling for blazing fast development.
+  - **React Router:** For declarative routing within the application.
+  - **(Optional: Add State Management like Redux or Zustand)**
+  - **(Optional: Add CSS Framework like Tailwind CSS or Material-UI)**
 
-Follow these steps:
+- **Backend:**
+  - **Node.js:** A JavaScript runtime environment.
+  - **Express.js:** A minimal and flexible Node.js web application framework.
+  - **MongoDB:** A cross-platform document-oriented NoSQL database.
+  - **Mongoose:** An elegant MongoDB object modeling tool for Node.js.
+  - **JWT (JSON Web Tokens):** For secure user authentication.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🚀 Getting Started
 
-# Step 3: Install the necessary dependencies.
-npm i
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+### Prerequisites
 
-**Edit a file directly in GitHub**
+You need to have the following software installed on your machine:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- [Node.js](https://nodejs.org/en/) (v16 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [MongoDB](https://www.mongodb.com/try/download/community) (or a MongoDB Atlas account)
 
-**Use GitHub Codespaces**
+### Installation & Setup
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1.  **Clone the repository:**
 
-## What technologies are used for this project?
+    ```bash
+    git clone [https://github.com/your-username/CampusEventHub.git](https://github.com/your-username/CampusEventHub.git)
+    cd CampusEventHub
+    ```
 
-This project is built with:
+2.  **Setup the Backend:**
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+    ```bash
+    # Navigate to the backend directory
+    cd backend
 
-## How can I deploy this project?
+    # Install dependencies
+    npm install
 
-Simply open [Lovable](https://lovable.dev/projects/9fee407c-f26d-4838-9fc7-17fe0ea592eb) and click on Share -> Publish.
+    # Create a .env file in the backend directory
+    # and add the following environment variables:
+    touch .env
+    ```
 
-## Can I connect a custom domain to my Lovable project?
+    Your `backend/.env` file should look like this:
 
-Yes, you can!
+    ```env
+    PORT=5000
+    MONGO_URI=your_mongodb_connection_string
+    JWT_SECRET=your_super_secret_jwt_key
+    ```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+3.  **Setup the Frontend:**
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+    ```bash
+    # Navigate to the frontend directory from the root
+    cd ../frontend
+
+    # Install dependencies
+    npm install
+
+    # Create a .env file in the frontend directory
+    # and add the following environment variable:
+    touch .env
+    ```
+
+    Your `frontend/.env` file should look like this. This tells your React app where to find the backend API.
+
+    ```env
+    VITE_API_BASE_URL=http://localhost:5000
+    ```
+
+### Running the Application
+
+You'll need to run both the backend and frontend servers in separate terminals.
+
+1.  **Run the Backend Server:**
+
+    ```bash
+    # From the /backend directory
+    npm start
+    ```
+
+    Your backend server should now be running on `http://localhost:5000`.
+
+2.  **Run the Frontend Development Server:**
+    ```bash
+    # From the /frontend directory
+    npm run dev
+    ```
+    Your React application should now be running on `http://localhost:5173` (or another port specified by Vite).
+
+---
+
+## 🤝 Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
+
+---
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
