@@ -20,12 +20,13 @@ const corsOptions = {
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
-    
+
     const allowedOrigins = [
       "http://localhost:5173",  // Development frontend
-      "https://campus-connect-swart.vercel.app"  // Replace with your actual Vercel URL
+      "https://campus-connect-swart.vercel.app",  // Your Vercel URL (update if different)
+      "https://campuseventhub-api.onrender.com"  // Your Render backend URL
     ];
-    
+
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {

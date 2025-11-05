@@ -1,10 +1,13 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: import.meta.env.PROD
+    ? "https://campuseventhub-api.onrender.com/api"
+    : "http://localhost:5000/api",
   headers: {
     "Content-Type": "application/json"
-  }
+  },
+  withCredentials: true  // Important for CORS with credentials
 });
 
 // Automatically attach token if available
